@@ -1,0 +1,21 @@
+# RubyとNodeのバージョンを引数として指定
+ARG RUBY_VERSION=3.2.2
+ARG NODE_VERSION=20
+
+# Rubyのバージョンを指定
+FROM ruby:${RUBY_VERSION}
+
+# 必要なライブラリのインストール
+RUN apt-get update -qq && \
+  apt-get install -y libpq-dev curl gnupg2 && \
+  curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - && \
+  apt-get install -y nodejs && \
+  npm install -g npm@latest && npm install -g yarn && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Gemfileの追加とインストール
+ADD Gemfile* /app/
+RUN bundle install
