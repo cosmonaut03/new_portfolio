@@ -45,5 +45,4 @@ sed -e "s/RUBY_VERSION/$ruby_version/g" \
 
 
 echo "-------------------------------------------"
-echo "不要なファイルを削除してください"
-echo "RUN: rm -rf Dockerfile.tmp && rm -rf scripts"
+cat scripts/templates/how_to_start.md
