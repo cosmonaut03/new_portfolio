@@ -10,18 +10,25 @@ echo "Rubyのバージョン: $ruby_version"
 echo "Nodeのバージョン: $node_version"
 echo "デフォルトオプション: $default_option"
 
-read -p "他に必要なオプションがあれば入力してください > " other_option
-
-
-echo "-------------------------------------------"
-read -p "この内容で良いですか？ (yes/no): " confirmation
-if [ "$confirmation" != "yes" ]; then
-  echo "バージョンを変える場合は、Dockerfile.tmpを編集してください。"
+read -p "この内容で次に進みますか？ (yes/no): " confirmation_default
+if [ "$confirmation_default" != "yes" ]; then
+  echo "バージョンを変える場合は、Dockerfile.tmpとscripts/setup_rails.shを編集してください。"
   echo "デフォルトオプションを変える場合は、scripts/setup_rails.shを編集してください。"
   echo "終了します。"
   exit 1
 fi
 
+
+echo "-------------------------------------------"
+read -p "他に必要なオプションがあれば入力してください > " other_option
+echo "以下のコマンドでRailsをインストールします。"
+echo "rails new . $default_option $other_option"
+
+read -p "この内容で次に進みますか？ (yes/no): " confirmation_other_option
+if [ "$confirmation_other_option" != "yes" ]; then
+  echo "終了します。"
+  exit 1
+fi
 
 echo "-------------------------------------------"
 echo "Dockerをビルドしています。"
