@@ -12,6 +12,7 @@ echo "デフォルトオプション: $default_option"
 
 read -p "他に必要なオプションがあれば入力してください > " other_option
 
+
 echo "-------------------------------------------"
 read -p "この内容で良いですか？ (yes/no): " confirmation
 if [ "$confirmation" != "yes" ]; then
@@ -20,6 +21,7 @@ if [ "$confirmation" != "yes" ]; then
   echo "終了します。"
   exit 1
 fi
+
 
 echo "-------------------------------------------"
 echo "Dockerをビルドしています。"
@@ -30,9 +32,16 @@ echo "Railsをインストールしています。"
 echo "docker run --rm -v ${PWD}:/app rails-new-template rails new . --force --database=postgresql --skip-bundle $other_option"
 docker run --rm -v ${PWD}:/app rails-new-template rails new . --force --database=postgresql --skip-bundle $other_option
 
+
 echo "-------------------------------------------"
 echo "database.ymlを編集しています。"
-cat scripts/templates/database.yml > config/database.yml
+cat scripts/templates/config/database.yml > config/database.yml
+
+echo "Dockerfileを作成しています。"
+sed -e "s/RUBY_VERSION/$ruby_version/g" \
+    -e "s/NODE_VERSION/$node_version/g" \
+    scripts/templates/docker/Dockerfile.dev > docker/Dockerfile.dev
+
 
 echo "-------------------------------------------"
 echo "不要なファイルを削除してください"
