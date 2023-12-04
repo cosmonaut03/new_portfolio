@@ -38,6 +38,7 @@ echo "database.ymlを編集しています。"
 cat scripts/templates/config/database.yml > config/database.yml
 
 echo "Dockerfileを作成しています。"
+mkdir -p docker
 sed -e "s/RUBY_VERSION/$ruby_version/g" \
     -e "s/NODE_VERSION/$node_version/g" \
     scripts/templates/docker/Dockerfile.dev > docker/Dockerfile.dev
