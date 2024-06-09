@@ -51,3 +51,6 @@ MyDashを使用し、少しでも自身に必要な情報の管理の効率化�
 * カテゴリ特化機能（音楽、映画、旅行、食事...）
 * アイデア投稿機能
 * 個人のブックマークの閲覧機能
+
+### 画面遷移図
+Figma：https://www.figma.com/board/jbfaM3VWkjLfX4unNfRner/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=IzhmAVb0mp3ZuqXM-0
