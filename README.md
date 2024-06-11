@@ -67,3 +67,6 @@ MyDashを使用し、少しでも自身に必要な情報の管理の効率化�
 
 ### 画面遷移図
 Figma：https://www.figma.com/design/6wkPWkMb4IXGNfZRTX1RAP/%E7%94%BB%E9%9D%A2%E8%A8%AD%E8%A8%88%E5%9B%B3?node-id=0-1&t=X3H9D3jgzMd22qtN-1
+
+### ER図
+draw.io：https://drive.google.com/file/d/1DDuNy2xXZyXmvwPK8Ml6wjUAXtKpG7Nw/view?usp=sharing
