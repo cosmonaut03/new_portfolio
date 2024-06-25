@@ -49,6 +49,9 @@ gem 'bootstrap', '~> 5.3.0'  # Bootstrap 5のGemを追加
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'dartsass-rails', '~> 0.4.0'
+gem 'sassc-rails'
+gem 'execjs'
+gem 'mini_racer'
 
 # UI/UX
 gem 'rails-i18n'
@@ -87,3 +90,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
