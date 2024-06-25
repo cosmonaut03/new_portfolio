@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body>
+    <%# ヘッダ共通部品 %>
+    <% if logged_in? %>
+      <!-- ログイン時 -->
+      <%= render 'shared/header' %>  
+    <% else %>
+      <!-- 未ログイン -->
+      <%= render 'shared/before_login_header' %>  
+    <% end %>
+    
+    <%# flashMessage 共通部品 %>
+    <%= render 'shared/flash_message' %>
+
+    <%# body部品 %>
+    <%= yield %>
+
+    <%# フッタ共通部品 %>
+    <%= render 'shared/footer' %>  
+  </body>
+</html>
