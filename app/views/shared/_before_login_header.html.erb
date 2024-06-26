@@ -2,18 +2,12 @@
 <header>
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
-    <!-- ここからlink_toを使って修正してください -->
-    <%# <a class="navbar-brand" href="/">
-      <!-- image_tagを使って修正してください -->
-      <img src="logo.png" />
-    </a> %>
     <%= link_to('/', class: "navbar-brand icon") do %>
       <% image_tag("icon.png") %>
     <% end %>
     <%= link_to('/', class: "navbar-brand") do %>
       <% image_tag("logo.png") %>
     <% end %>
-    <!-- ここまでlink_toを使って修正してください -->
     
     <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class="navbar-toggler-icon"></span>
@@ -22,9 +16,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto main-nav align-items-center">
         <li class="nav-item">
-          <!-- link_toを使って修正してください -->
-          <%# <a class="nav-link" href="#">ログイン</a> %>
-          <%= link_to(t('header.login'), login_path, class: "nav-link") %>
+            <%= link_to(t('dictionary.login'), login_path, class: "nav-link btn btn-success active", style: "color:white;") %>
+        </li>
+        <li class="nav-item">
+          <%= link_to(t('dictionary.new_user'), '/', class: "nav-link btn btn-secondary active", style: "color:white;") %>
         </li>
       </ul>
     </div>
