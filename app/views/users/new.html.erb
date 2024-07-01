@@ -1,0 +1,26 @@
+<%= turbo_frame_tag 'sign_modal' do %>
+<%# 新規ユーザー登録 %>
+<div class="modal fade" id="registerModal" data-controller="sign_in_modal" data-action="turbo:submit-end->sign_in_modal#handleResponse">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-3">
+
+      <div class="modal-body">
+        <div class="text-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action="turbo:submit-end->sign_in_modal#close"></button>
+        </div>
+        <div class="text-center mb-4">
+          <h1 class="modal-title fs-2 fw-semibold" id="staticBackdropLabel"><%= t('dictionary.new_user') %></h1>
+        </div>
+
+        <%= render "form" %>
+
+        <div class="text-center mt-4 mb-3"><%= t('fixed_phrase.or') %></div>
+        <div class="text-center mt-1 mb-4">
+            <%= t('fixed_phrase.attend_login') %>
+            <%= link_to(t('dictionary.login'), login_path, id: "modal-login-link", data: {turbo_frame: 'login_modal', controller: 'login-modal'} ) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

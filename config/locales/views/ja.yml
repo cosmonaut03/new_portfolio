@@ -4,3 +4,16 @@ ja:
     login: "ログイン"
     loginout: "ログアウト"
     new_user: "無料登録"
+  submit:
+    sign_up_completed: "登録完了"
+    submit_login: "ログイン"
+  placeholder:
+    email: "メールアドレス"
+    new_password: "使用するパスワードを作成"
+    password: "パスワード"
+  fixed_phrase:
+    or: "または"
+    attend_login: "アカウントをすでに作成済みの方は"
+    attend_sign_up: "初めての利用の方は"
+    forget_password: "パスワードを忘れた場合"
+  

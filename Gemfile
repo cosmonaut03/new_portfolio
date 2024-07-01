@@ -92,6 +92,7 @@ group :development do
   gem 'pry-doc'
   gem 'pry-rails'
 
+  gem 'annotate', github: 'ctran/annotate_models', branch: 'develop'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -102,6 +103,10 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'faker'
+  gem 'fuubar'
+  gem 'shoulda-matchers'
+  gem 'timecop'
   gem 'selenium-webdriver'
 end
 
