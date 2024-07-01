@@ -1,0 +1,12 @@
+<div id="top" class='top-wrapper'>
+  <div class='top-inner-text'>
+    <h1 class='top-main-text'>
+      あなただけの<br><span>ホーム</span>を作ろう
+    </h1>
+  </div>
+  <!-- モーダルウィンドウ -->
+  <%# <%= render 'modals/register' %>
+  <%# <%= render 'modals/login' %>
+  <%= turbo_frame_tag 'login_modal'%>
+  <%= turbo_frame_tag 'sign_modal'%>
+</div>

@@ -16,10 +16,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto main-nav align-items-center">
         <li class="nav-item">
-            <%= link_to(t('dictionary.login'), login_path, class: "nav-link btn btn-success active", style: "color:white;") %>
+            <%= link_to(t('dictionary.login'), login_path, id: "head-login-link", class: "nav-link btn btn-success active", style: "color:white;", data: {turbo_frame: 'login_modal', controller: 'login-modal'}) %>
         </li>
         <li class="nav-item">
-          <%= link_to(t('dictionary.new_user'), '/', class: "nav-link btn btn-secondary active", style: "color:white;") %>
+            <%= link_to(t('dictionary.new_user'), new_user_path, id: "head-new-link", class: "nav-link btn btn-secondary active", style: "color:white;", data: {turbo_frame: 'sign_modal', controller: 'sign-in-modal'}) %>
         </li>
       </ul>
     </div>

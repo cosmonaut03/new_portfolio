@@ -3,3 +3,7 @@ ja:
     models:
       user: "ユーザー"
     attributes:
+      user: 
+        email: "メールアドレス"
+        password: "パスワード"
+        

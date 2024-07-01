@@ -1,9 +1,6 @@
 <!-- ヘッダ共通部品 -->
 <header>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <!-- link_toを使う形に修正してください -->
-    <!-- <img src='logo.png' /> -->
-    <!-- </a> -->
     <%= link_to('/', class: "navbar-brand icon") do %>
       <% image_tag("icon.png") %>
     <% end %>
@@ -14,51 +11,17 @@
 
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
-        <li class='nav-item dropdown dropdown-slide'>
-          <!-- link_toを使う形に修正してください -->
-            <!-- <a href='#' class='nav-link dropdown-toggle' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> -->
-            <!--   掲示板 -->
-            <!--  </a> -->
-           <%= link_to( t('header.board') , '#', class: 'nav-link dropdown-toggle', 'aria-haspopup' => 'true', 'aria-expanded' => 'false', 'data-bs-toggle' => 'dropdown') %>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <!-- link_toを使う形に修正してください -->
-            <!--  <a class='dropdown-item' href='#'>掲示板一覧</a> -->
-            <%= link_to t('header.board_index'), boards_path, class: "dropdown-item" %>
-
-            <!-- link_toを使う形に修正してください -->
-            <!-- <a class='dropdown-item' href='#'>掲示板作成</a> -->
-            <%= link_to t('header.create_board'), new_board_path, class: "dropdown-item" %>
-          </div>  
-        </li>
-
-        <li class='nav-item'>
-          <!-- link_toを使う形に修正してください -->
-          <!-- <a class='nav-link' href='#'>ブックマーク一覧</a> -->
-          <%= link_to t('header.bookmark_index'), bookmarks_boards_path, class: "nav-link" %>
-        </li>
 
         <li class='nav-item dropdown dropdown-slide'>
-          <!-- link_toを使う形に修正してくださいdata属性、area属性の書き方は次の通りです。-->
-          <!-- data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } -->
-           <!-- <a href='#' class='nav-link' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'> -->
-           <!-- image_tagを使う形に修正してください -->
-           <!-- <img class='rounded-circle mr15' src='sample.jpg' width='40' height='40' /> -->
-           <!-- </a> -->
-
           <%= link_to('#', class: 'nav-link', id: 'header-profile', data: {bs_toggle: 'dropdown' }, aria: {haspopup: 'true', expanded: 'false'}) do %>
-            <%= image_tag(current_user.avatar.url, class: 'rounded-circle mr15', width: 40, height: 40) %>
+            <%= image_tag("sample.jpeg", class: 'rounded-circle mr15', width: 40, height: 40) %>
           <% end %>
         
           <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
+            <div class='dropdown-item'><%= current_user.user_name %></div>
             <div class='dropdown-divider'></div>
-            <!-- link_toを使う形に修正してください -->
-            <!-- <a class='dropdown-item' href='#'>プロフィール</a> -->
-            <%= link_to t('header.profile'), profile_path, class: 'dropdown-item' %> 
-            <!-- link_toを使う形に修正してください -->
-            <!-- <a class='dropdown-item' href='#'>ログアウト</a> -->
-            <%# <%= link_to 'ログアウト', logout_path, class: 'dropdown-item' %>
-            <%= link_to t('header.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+            <%# <%= link_to t('header.profile'), profile_path, class: 'dropdown-item' %> 
+            <%= link_to t('dictionary.loginout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
           </div>
         </li>
       </ul>

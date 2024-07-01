@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/ctran/annotate_models.git
+  revision: 5d01c4171990c4fe7b9b0977b05ce14a98209e53
+  branch: develop
+  specs:
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -162,13 +171,19 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    faker (3.4.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
+    ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
+    fuubar (2.5.1)
+      rspec-core (~> 3.0)
+      ruby-progressbar (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -191,6 +206,7 @@ GEM
     jwt (2.8.2)
       base64
     language_server-protocol (3.17.0.3)
+    libv8-node (21.7.2.0-x86_64-darwin)
     libv8-node (21.7.2.0-x86_64-linux)
     logger (1.6.0)
     loofah (2.22.0)
@@ -227,6 +243,8 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.7.0)
+    nokogiri (1.15.5-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     oauth (0.6.2)
@@ -372,6 +390,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-matchers (6.2.0)
+      activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -401,6 +421,7 @@ GEM
     strscan (3.1.0)
     thor (1.3.0)
     tilt (2.3.0)
+    timecop (0.9.10)
     timeout (0.4.1)
     turbo-rails (2.0.5)
       actionpack (>= 6.0.0)
@@ -428,9 +449,11 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
+  annotate!
   better_errors
   binding_of_caller
   bootsnap
@@ -444,7 +467,9 @@ DEPENDENCIES
   dockerfile-rails (>= 1.6)
   execjs
   factory_bot_rails
+  faker
   font-awesome-rails
+  fuubar
   jbuilder
   jquery-rails
   jsbundling-rails
@@ -466,11 +491,13 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   selenium-webdriver
+  shoulda-matchers
   simplecov
   sorcery (= 0.16.3)
   spring-commands-rspec
   sprockets-rails
   stimulus-rails
+  timecop
   turbo-rails
   tzinfo-data
   web-console

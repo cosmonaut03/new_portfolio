@@ -16,6 +16,9 @@ module App
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # view
+    config.action_view.form_with_generates_remote_forms = true
+
     # generator 設定
     config.generators do |g|
       g.assets false

@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(@user, :form) do %>
+    <%= render 'shared/modal_errors', modal_errors: @user %>
+    <%= form_with model: @user, url: users_path, html: { data: {action: 'turbo:submit-end->sign_in_modal#close'}} do |f| %>
+        <div class="w-75 mx-auto">
+            <div class="mb-3">
+                <%= f.label :email, class: "form-label" %>
+                <%= f.email_field :email, class: "form-control", placeholder: t('placeholder.email') %>
+            </div >
+            <div class="mb-4">
+                <%= f.label :password, class: "form-label" %>
+                <%= f.password_field :password, class: "form-control", placeholder: t('placeholder.new_password') %>
+            </div >
+            <div class="mt-4">
+                <%= f.submit t('submit.sign_up_completed'), id: "modal-new-btn", class: "btn btn-success w-100 rounded-3" %>
+            </div >
+        </div>
+    <% end %>
+<% end %>

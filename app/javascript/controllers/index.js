@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SignInModalController from "./sign_in_modal_controller"
+application.register("sign_in_modal", SignInModalController)
+
+import LoginModalController from "./login_modal_controller"
+application.register("login_modal", LoginModalController)

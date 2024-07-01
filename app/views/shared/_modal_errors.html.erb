@@ -1,0 +1,9 @@
+    <% if modal_errors.errors.any? %>
+        <div class="alert alert-danger w-75 mx-auto">
+            <ul class="mb-0">
+                <% modal_errors.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
