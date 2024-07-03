@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'users#index'
   resources :users, only: %i[new create]
-  resources :user_sessions, only: %i[new, create, destroy]
+  resources :user_sessions, only: %i[new create destroy]
+  resources :dashboards, only: %i[index]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'

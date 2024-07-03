@@ -1,0 +1,74 @@
+  
+  .dashboard-wrapper {
+    background-color: #023602;
+    background-size: cover;
+    height: 100vh;
+  }
+
+.group {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    width: 90%;
+    margin: 0 auto;
+
+    .group-title {
+        background: #5d7b64;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .group-body {
+        background: rgb(219, 218, 218);
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .item-back {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+            width: 190px;
+            height: 180px;
+            margin: 10px;
+            padding: 5px;
+
+            &.add {
+                background-color: transparent;
+                box-shadow: 0 0px 0px;
+
+                .add-button {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i {
+                        // +icon
+                        color: #7d7d7d;
+                        font-size: 3rem;
+                        
+                    }
+                }
+            }
+
+            .item-contents {
+                padding: 5px;
+
+                .link-image {
+                    width: 100%;
+                    height: 100%;
+                }
+    
+    
+                .link-title {
+                    font-size: 1.25rem;
+                    margin-bottom: -7px;
+                }
+    
+                .link-desc {
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}

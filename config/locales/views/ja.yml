@@ -16,4 +16,6 @@ ja:
     attend_login: "アカウントをすでに作成済みの方は"
     attend_sign_up: "初めての利用の方は"
     forget_password: "パスワードを忘れた場合"
+  header:
+    home: "ホーム"
   
