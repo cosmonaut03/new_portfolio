@@ -12,10 +12,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.user_name = @user.email.split('@').first
     if @user.save
+      # ログイン
+      @user = login(params[:user][:email], params[:user][:password])
+      # ユーザの初期データ作成
+      HomeLayout.create_default_for_user(@user.id)
+
       flash[:success] = '登録が完了しました'
-      render turbo_stream: turbo_stream.action(:redirect, root_path)
+      render turbo_stream: turbo_stream.action(:redirect, dashboards_path)
     else
-      # @register_errors = @user.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end

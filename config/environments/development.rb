@@ -14,6 +14,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # Allow better_errors to work with cloud IDEs.
+  BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
+
   # Enable server timing
   config.server_timing = true
 

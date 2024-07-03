@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
     if @user
       flash[:success] = 'ログインしました'
-      render turbo_stream: turbo_stream.action(:redirect, root_path)
+      render turbo_stream: turbo_stream.action(:redirect, dashboards_path)
     else
       @user = User.new # エラーを保持するための新しいユーザーオブジェクトを作成
       @user.errors.add(:base, 'メールアドレスまたはパスワードが無効です') # カスタムエラーメッセージを追加

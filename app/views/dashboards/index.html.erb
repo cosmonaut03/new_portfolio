@@ -1,0 +1,9 @@
+<div id="dashboard" class='dashboard-wrapper pt-4'>
+  <%# グループ %>
+  <%= render partial: "group", collection: @home_layouts %>
+  
+  <%# モーダルウィンドウ %>
+  <%= turbo_frame_tag 'category_modal'%>
+  <%= turbo_frame_tag 'folder_modal'%>
+  <%= turbo_frame_tag 'bookmark_modal'%>
+</div>
