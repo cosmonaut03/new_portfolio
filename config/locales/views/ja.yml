@@ -7,6 +7,10 @@ ja:
   submit:
     sign_up_completed: "登録完了"
     submit_login: "ログイン"
+    regist: "登録"
+  confirm:
+    delete: "%{title}を削除しますか？"
+    
   placeholder:
     email: "メールアドレス"
     new_password: "使用するパスワードを作成"
@@ -18,4 +22,12 @@ ja:
     forget_password: "パスワードを忘れた場合"
   header:
     home: "ホーム"
+  category:
+    title: "カテゴリ"
+    placeholder: 
+      name: "カテゴリ名"
+      description: "概要"
+    confirm: "削除しますか？"
+    other:
+      uncategorized: "未分類"
   

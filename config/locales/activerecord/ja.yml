@@ -6,4 +6,7 @@ ja:
       user: 
         email: "メールアドレス"
         password: "パスワード"
+      category:
+        name: "カテゴリ名"
+        description: "概要"
         

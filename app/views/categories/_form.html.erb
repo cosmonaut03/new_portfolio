@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(@category, :form) do %>
+    <%= render 'shared/modal_errors', modal_errors: @category %>
+    <%= form_with model: @category, html: { data: {action: 'turbo:submit-end->category#close'}} do |f| %>
+        <div class="w-75 mx-auto mb-5">
+            <div class="mb-3">
+                <%= f.label :name, class: "form-label" %>
+                <%= f.text_field :name, class: "form-control", placeholder: t('category.placeholder.name') %>
+            </div >
+            <div class="mb-4">
+                <%= f.label :description, class: "form-label" %>
+                <%= f.text_field :description, class: "form-control", placeholder: t('category.placeholder.description') %>
+            </div >
+            <div class="mt-4">
+                <%= f.submit t('submit.regist'), id: "modal-category-btn", class: "btn btn-success w-100 rounded-3" %>
+            </div >
+        </div>
+    <% end %>
+<% end %>

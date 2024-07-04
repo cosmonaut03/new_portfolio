@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       @user = login(params[:user][:email], params[:user][:password])
       # ユーザの初期データ作成
       HomeLayout.create_default_for_user(@user.id)
+      Category.create_default_for_user(@user.id)
 
       flash[:success] = '登録が完了しました'
       render turbo_stream: turbo_stream.action(:redirect, dashboards_path)

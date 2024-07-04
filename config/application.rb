@@ -22,7 +22,7 @@ module App
     # generator 設定
     config.generators do |g|
       g.assets false
-      g.helper     false
+      g.helper false
       # helperファイルの設定
       g.helper = false
       # testファイルの設定
@@ -31,10 +31,10 @@ module App
       g.skip_routes = true
 
       g.test_framework :rspec,
-        fixtures: false, # テストDBにレコードを作るfixtureの作成をスキップ(FactoryBotを使用するため)
-        view_specs: false, # ビューファイル用のスペックを作成しない
-        helper_specs: false, # ヘルパーファイル用のスペックを作成しない
-        routing_specs: false # routes.rb用のスペックファイル作成しない
+                       fixtures: false, # テストDBにレコードを作るfixtureの作成をスキップ(FactoryBotを使用するため)
+                       view_specs: false, # ビューファイル用のスペックを作成しない
+                       helper_specs: false, # ヘルパーファイル用のスペックを作成しない
+                       routing_specs: false # routes.rb用のスペックファイル作成しない
     end
 
     # Configuration for the application, engines, and railties goes here.

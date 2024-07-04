@@ -12,3 +12,6 @@ application.register("sign_in_modal", SignInModalController)
 
 import LoginModalController from "./login_modal_controller"
 application.register("login_modal", LoginModalController)
+
+import CategoryController from "./category_controller"
+application.register("category", CategoryController)
