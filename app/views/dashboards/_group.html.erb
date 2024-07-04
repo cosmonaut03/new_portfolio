@@ -4,23 +4,17 @@
         <span class="ms-2"><%= group.is_personal? ? 'My Bookmarks' : "Group" %></span>
     </div>
     <%# グループbody %>
-    <div class="group-body">
-        <%# ダミーアイテム %>
-        <div class="item-back">
-            <div class="item-contents">
-                <div class="image-container">
-                    <%= image_tag("sample.jpg", class: "link-image") %>
-                </div>
-                <div class="link-title text-start">ダミーTitle</div>
-                <div class="link-desc text-start ">ダミーDescription</div>
-            </div>
+    <div  class="group-body">
+        <div id="layout_1">
+            <%= render partial: "categories/category", collection: group.categories %>
         </div>
 
-        <%# +ボタン %>
-        <div class="item-back add">
+        <%= link_to(new_category_path, data: {turbo_frame: 'category_modal'} ) do %>
+        <div class="category-add">
             <div class="add-button">
                 <i class="bi bi-plus-circle-fill"></i>
             </div>
         </div>
+        <% end %>
     </div>
 </div>

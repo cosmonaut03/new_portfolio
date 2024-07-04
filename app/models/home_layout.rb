@@ -24,6 +24,7 @@
 class HomeLayout < ApplicationRecord
   belongs_to :user
   belongs_to :group, optional: true
+  has_many :categories, through: :user
 
   # ユーザ個人の初期データ作成
   def self.create_default_for_user(user_id)
