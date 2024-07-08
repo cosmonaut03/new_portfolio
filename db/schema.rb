@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_022128) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_110648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_022128) do
     t.index ["group_id"], name: "index_categories_on_group_id"
     t.index ["user_id", "is_uncategorized"], name: "index_categories_on_user_id_and_is_uncategorized", unique: true, where: "(is_uncategorized = true)"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "parent_id"
+    t.bigint "category_id", null: false
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.index ["category_id"], name: "index_folders_on_category_id"
+    t.index ["group_id"], name: "index_folders_on_group_id"
+    t.index ["parent_id"], name: "index_folders_on_parent_id"
+    t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -73,6 +89,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_022128) do
 
   add_foreign_key "categories", "groups"
   add_foreign_key "categories", "users"
+  add_foreign_key "folders", "categories"
+  add_foreign_key "folders", "folders", column: "parent_id"
+  add_foreign_key "folders", "groups"
+  add_foreign_key "folders", "users"
   add_foreign_key "home_layouts", "groups"
   add_foreign_key "home_layouts", "users"
   add_foreign_key "user_groups", "groups"

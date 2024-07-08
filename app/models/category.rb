@@ -28,6 +28,7 @@ class Category < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :group, optional: true
   has_many :home_layouts, foreign_key: :user_id, primary_key: :user_id
+  has_many :folders, dependent: :destroy
 
   validates :name, presence: true
   validates :position, presence: true
@@ -42,7 +43,7 @@ class Category < ApplicationRecord
       user_id:,
       group_id: nil,
       name: 'uncategorized',
-      position: get_max_position_for_user(user_id),
+      position: get_new_position_for_user(user_id),
       is_uncategorized: true
     )
   end
