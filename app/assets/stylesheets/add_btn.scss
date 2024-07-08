@@ -1,0 +1,167 @@
+/* This is an example, feel free to delete this code */
+.tooltip-flame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // sssss
+  .tooltip-container {
+    background: transparent;
+    background: linear-gradient(
+      138deg,
+      rgb(0, 109, 20) 15%,
+      rgb(30, 116, 40) 65%
+    );
+    position: relative;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    color:#fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+
+  }
+  .tooltip-container:hover {
+    background: #fff;
+    transition: all 0.6s;
+  }
+
+  .tooltip-container .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.2s;
+  }
+
+  .tooltip-container:hover .text {
+    color: rgb(1, 119, 36);
+    transition: all 0.6s;
+  }
+
+  /* Inicio do tooltip pinterest */
+  .tooltip1 {
+    position: absolute;
+    top: 100%;
+    left: -200%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    color: #eec512;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 45px;
+    height: 45px;
+    i {
+      position: absolute;
+      top: 5%;
+      left: 20%;
+    }
+  }
+
+  .tooltip-container:hover .tooltip1 {
+    top: -78%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tooltip-container:hover .tooltip1:hover {
+    background: #eec512;
+    color: #fff;
+  }
+  /* Fim do tooltip pinterest */
+
+  /* Inicio do tooltip dribbble */
+  .tooltip2 {
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    color: #eec512;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 45px;
+    height: 45px;
+    i {
+      position: absolute;
+      top: 3%;
+      left: 15%;
+    }
+  }
+
+  .tooltip-container:hover .tooltip2 {
+    top: -79%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tooltip-container:hover .tooltip2:hover {
+    background: #eec512;
+    color: #fff;
+  }
+  /* Fim do tooltip dribbble */
+
+  // /* Inicio do tooltip fixo */
+  // .tooltip9 {
+  //   position: absolute;
+  //   top: 0;
+  //   left: -115%;
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   width: 150px;
+  //   height: 150px;
+  //   z-index: -1;
+  // }
+
+  // .tooltip-container:hover .tooltip9 {
+  //   top: -110%;
+  //   opacity: 1;
+  //   visibility: visible;
+  //   border-radius: 50%;
+  //   z-index: -1;
+  // }
+
+  //仮
+  .tooltip9 {
+    position: absolute;
+    top: 0;
+    left: -115%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    width: 140px;
+    height: 55px;
+  }
+
+  .tooltip-container:hover .tooltip9 {
+    top: -80%;
+    opacity: 1;
+    visibility: visible;
+    border-radius: 60%;
+    z-index: 0;
+  }
+}

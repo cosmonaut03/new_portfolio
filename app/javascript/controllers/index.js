@@ -15,3 +15,6 @@ application.register("login_modal", LoginModalController)
 
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
+
+import FolderController from "./folder_controller"
+application.register("folder", FolderController)

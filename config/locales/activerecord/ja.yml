@@ -9,4 +9,6 @@ ja:
       category:
         name: "カテゴリ名"
         description: "概要"
-        
+      folder:
+        name: "フォルダ名"
+        description: "概要" 

@@ -27,7 +27,11 @@ ja:
     placeholder: 
       name: "カテゴリ名"
       description: "概要"
-    confirm: "削除しますか？"
     other:
       uncategorized: "未分類"
+  folder:
+    title: "フォルダ"
+    placeholder:
+      name: "フォルダ名"
+      description: "概要"
   

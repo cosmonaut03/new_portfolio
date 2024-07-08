@@ -1,0 +1,16 @@
+        <%# +ボタン(要素) %>
+        <div class="item-back add">
+                <%# <i class="bi bi-plus-circle-fill"></i> %>
+            <div class="tooltip-flame add-button">
+                <div class="tooltip-container">
+                    <span class="text"><i class="bi bi-plus-circle-fill"></i></span>
+                    <% unless folder_id.present? %>
+                        <%= link_to(new_folder_path(category_id: category.id), data: { turbo_frame: 'folder_modal' }, class: "folder-link") do %>
+                            <span class="tooltip1"><i class="bi bi-folder2 fs-3"></i></span>
+                        <% end %>
+                    <% end %>
+                    <span class="tooltip2"><i class="bi bi-link-45deg fs-2"></i></span>
+                    <span class="tooltip9" ></span>
+                </div>
+            </div>
+        </div>

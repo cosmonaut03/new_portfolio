@@ -21,6 +21,7 @@ console_command = '/rails/bin/rails console'
   processes = ['app']
 
 [[vm]]
+  memory = '512mb'
   size = 'shared-cpu-1x'
 
 [[statics]]

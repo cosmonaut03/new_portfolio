@@ -1,0 +1,2 @@
+<%= turbo_stream.append "folder-block-#{@folder.category_id}", partial: 'folders/folder', locals: { folder: @folder } %>
+<%= turbo_stream.append "category-accordion-#{@folder.category_id}", partial: 'folders/folder_panel', locals: {category: @folder.category, folder: @folder } %>
