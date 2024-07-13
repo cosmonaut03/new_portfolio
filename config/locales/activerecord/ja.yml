@@ -11,4 +11,8 @@ ja:
         description: "概要"
       folder:
         name: "フォルダ名"
-        description: "概要" 
+        description: "概要"
+      bookmark:
+        url: "URL"
+        title: "タイトル"
+        description: "概要"

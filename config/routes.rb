@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :dashboards, only: %i[index]
   resources :categories, only: %i[new edit create update destroy]
   resources :folders, only: %i[new edit create update destroy]
+  resources :bookmarks, only: %i[new edit create update destroy]
+
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'

@@ -1,15 +1,20 @@
         <%# +ボタン(要素) %>
         <div class="item-back add">
-                <%# <i class="bi bi-plus-circle-fill"></i> %>
             <div class="tooltip-flame add-button">
-                <div class="tooltip-container">
+                <div id="add-btn-c<%= category.id %><%='-f' + folder_id.to_s unless folder_id.nil? %>" class="tooltip-container">
                     <span class="text"><i class="bi bi-plus-circle-fill"></i></span>
                     <% unless folder_id.present? %>
-                        <%= link_to(new_folder_path(category_id: category.id), data: { turbo_frame: 'folder_modal' }, class: "folder-link") do %>
+                        <%= link_to(new_folder_path(category_id: category.id), data: { turbo_frame: 'folder_modal' },
+                            id: "new-folder-#{category.id}", class: "folder-link") do %>
                             <span class="tooltip1"><i class="bi bi-folder2 fs-3"></i></span>
                         <% end %>
                     <% end %>
-                    <span class="tooltip2"><i class="bi bi-link-45deg fs-2"></i></span>
+
+                    <%= link_to(new_bookmark_path(category_id: category.id, folder_id: folder_id), 
+                        data: { turbo_frame: 'bookmark_modal' }, class: "folder-link",
+                        id: "new-link-c#{category.id}#{'-f' + folder_id.to_s unless folder_id.nil?}") do %>
+                        <span class="tooltip2"><i class="bi bi-link-45deg fs-2"></i></span>
+                    <% end %>
                     <span class="tooltip9" ></span>
                 </div>
             </div>

@@ -1,12 +1,18 @@
     <div id="folder-panel-<%= folder.id %>" class="accordion-collapse collapse"
-            data-bs-parent="#category-accordion-<%= category.id %>">
-            <div class="folder-frame">
-                <%# フォルダ要素 %>
-                <div class="folder-back" style="">
-                    <div class="content">
-                        <%# +ボタン(要素) %>
-                        <%= render "shared/add_button", category: category, folder_id: folder.id %>
+         data-bs-parent="#category-accordion-<%= category.id %>">
+        <div class="folder-frame">
+            <%# フォルダ要素 %>
+            <div class="folder-back">
+                <div class="content">
+                    <%# link情報 %>
+                    <div id="folder-link-block-<%= folder.id %>" class="link-block">
+                        <% if folder.bookmarks.any? %>
+                            <%= render partial: "bookmarks/bookmark", collection: folder.bookmarks %>
+                        <% end %>
                     </div>
+                    <%# +ボタン(要素) %>
+                    <%= render "shared/add_button", category: category, folder_id: folder.id %>
                 </div>
             </div>
+        </div>
     </div>

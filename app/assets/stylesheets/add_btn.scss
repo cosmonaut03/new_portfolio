@@ -103,7 +103,7 @@
     height: 45px;
     i {
       position: absolute;
-      top: 3%;
+      top: 0%;
       left: 15%;
     }
   }
@@ -155,6 +155,10 @@
     z-index: -1;
     width: 140px;
     height: 55px;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
   }
 
   .tooltip-container:hover .tooltip9 {
@@ -163,5 +167,7 @@
     visibility: visible;
     border-radius: 60%;
     z-index: 0;
+    width: 140px;
+    height: 55px;
   }
 }

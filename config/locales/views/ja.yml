@@ -34,4 +34,9 @@ ja:
     placeholder:
       name: "フォルダ名"
       description: "概要"
-  
+  bookmark:
+    title: "ブックマーク"
+    placeholder:
+      url: "URL"
+      title: "タイトル"
+      description: "概要"

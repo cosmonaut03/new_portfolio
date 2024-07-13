@@ -1,0 +1,31 @@
+    <div id="bookmark-<%= bookmark.id %>" class="item-back">
+        <div class="item-contents">
+            <div class="image-container mb-2">
+                <% bookmark.image_url ||= "sample.jpg" %>
+                <%= image_tag(bookmark.image_url, class: "link-image") %>
+            </div>
+
+            <%# リンクタイトル %>
+            <div class="link-title text-start">
+                <%= link_to(bookmark.decorate.edit_title, bookmark.url, target: :_blank, id: "bookmark-url-#{bookmark.id}") %>
+            </div>
+
+            <div class="link-desc text-start ">
+                <%= bookmark.decorate.edit_description %>
+            </div>
+
+            <%# 修正リンク %>
+            <div class="link-edit">
+                <%= link_to(edit_bookmark_path(bookmark), data: { turbo_frame: 'bookmark_modal' },
+                    id: "edit-bookmark-#{bookmark.id}", class: "category-link") do %>
+                    <span><i class="bi bi-pencil-fill"></i></span>
+                <% end %>
+
+                <%# 削除リンク %>
+                <%= link_to(bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: t('confirm.delete', title: t('bookmark.title'))},
+                    id: "delete-bookmark-#{bookmark.id}", class: "category-link") do %>
+                    <span><i class="bi bi-trash-fill"></i></span>
+                <% end %>
+            </div>
+        </div>
+    </div>

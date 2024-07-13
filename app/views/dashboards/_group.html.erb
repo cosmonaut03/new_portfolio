@@ -9,7 +9,7 @@
             <%= render partial: "categories/category", collection: group.categories %>
         </div>
 
-        <%= link_to(new_category_path, data: {turbo_frame: 'category_modal'} ) do %>
+        <%= link_to(new_category_path, data: {turbo_frame: 'category_modal'}, id: "group-category-add-#{group.id}") do %>
         <div class="category-add">
             <div class="add-button">
                 <i class="bi bi-plus-circle-fill"></i>
