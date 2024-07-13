@@ -1,1 +1,6 @@
-<%= turbo_stream.replace "category_#{@category.id}", partial: 'categories/category', locals: { category: @category } %>
+<%# <%= turbo_stream.replace "category_#{@category.id}", partial: 'categories/category', locals: { category: @category } %>
+<%= turbo_stream.replace "category_name_#{@category.id}" do %>
+    <div id="category_name_<%= @category.id %>" class="category-name-box text-center">
+        <span class="category-name"><%= @category.name %></span>
+    </div>
+<% end %>
