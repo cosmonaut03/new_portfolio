@@ -1,0 +1,7 @@
+<% if @bookmark.folder_id.present? %>
+    <%# フォルダ内に作成 %>
+    <%= turbo_stream.append "folder-link-block-#{@bookmark.folder_id}", partial: 'bookmarks/bookmark', locals: { bookmark: @bookmark } %>
+<% else %>
+    <%# フォルダ外に作成 %>
+    <%= turbo_stream.append "link-block-#{@bookmark.category_id}", partial: 'bookmarks/bookmark', locals: { bookmark: @bookmark } %>
+<% end %>

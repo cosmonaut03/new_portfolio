@@ -1,4 +1,4 @@
-<div id=category_<%= category.id %> class="category mb-3">
+<div id=category_<%= category.id %> class="category mb-3 pb-3">
     <div class="category-header">
         <div class="category-name-box text-center">
             <span class="category-name"><%= category.name %></span>
@@ -6,37 +6,33 @@
         <% unless category.is_uncategorized %>
             <div class="pe-1">
                 <%# 修正リンク %>
-                <%= link_to(edit_category_path(category.id), data: { turbo_frame: 'category_modal' }, class: "category-link") do %>
+                <%= link_to(edit_category_path(category.id), data: { turbo_frame: 'category_modal' }, id: "edit-category-#{category.id}", class: "category-link") do %>
                     <span><i class="bi bi-pencil-fill me-1"></i></span>
                 <% end %>
 
                 <%# 削除リンク %>
-                <%= link_to(category_path(category), data: {turbo_method: :delete, turbo_confirm: t('confirm.delete', title: t('category.title'))}, class: "category-link") do %>
+                <%= link_to(category_path(category), data: {turbo_method: :delete, turbo_confirm: t('confirm.delete', title: t('category.title'))}, id: "delete-category-#{category.id}", class: "category-link") do %>
                     <span><i class="bi bi-trash-fill"></i></span>
                 <% end %>
             </div>
         <% end %>
-    </div> 
+    </div>
 
-    <%# ダミーアイテム %>
     <div class="content">
+        <%# linkパーシャル %>
         <div id="link-block-<%= category.id %>" class="link-block">
-            <div class="item-back">
-                <div class="item-contents">
-                    <div class="image-container">
-                        <%= image_tag("sample.jpg", class: "link-image") %>
-                    </div>
-                    <div class="link-title text-start">ダミーTitle</div>
-                    <div class="link-desc text-start ">ダミーDescription</div>
-                </div>
-            </div>
-        </div>
-
-        <%# フォルダパーシャル %>
+            <% if category.bookmarks_without_folder&.any? %>
+                <%= render partial: "bookmarks/bookmark", collection: category.bookmarks_without_folder, as: :bookmark %>
+            <% end %>
+        </div> 
+        
+        <%# folderパーシャル %>
         <div id="folder-block-<%= category.id %>" class="folder-block">
-            <%= render partial: "folders/folder", locals: { category: category }, collection: category.folders %>
+            <% if category.folders&.any? %>
+                <%= render partial: "folders/folder", locals: { category: category }, collection: category.folders %>
+            <% end %>
         </div>
-
+        
         <%# カテゴリADDボタン %>
         <%= render "shared/add_button", category: category, folder_id: nil %>
     </div>
@@ -44,6 +40,8 @@
     <%# accordion block %>
     <div id="category-accordion-<%= category.id %>" class="accordion">
         <%# folder content %>
-        <%= render partial: "folders/folder_panel", locals: { category: category }, collection: category.folders, as: :folder %>
+        <% if category.folders&.any? %>
+            <%= render partial: "folders/folder_panel", locals: { category: category }, collection: category.folders, as: :folder %>
+        <% end %>
     </div>
 </div>

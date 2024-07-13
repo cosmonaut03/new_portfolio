@@ -29,11 +29,15 @@ class Category < ApplicationRecord
   belongs_to :group, optional: true
   has_many :home_layouts, foreign_key: :user_id, primary_key: :user_id
   has_many :folders, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :name, presence: true
   validates :position, presence: true
   validates :is_uncategorized, uniqueness: { scope: :user_id, if: -> { user_id.present? && is_uncategorized? } }
   validates :is_uncategorized, uniqueness: { scope: :group_id, if: -> { group_id.present? && is_uncategorized? } }
+
+  # フォルダを持たないブックマークを格納
+  attr_accessor :bookmarks_without_folder
 
   # ---------------------
   # ユーザーの初期データ作成

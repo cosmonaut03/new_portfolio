@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_05_110648) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_082158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "url", null: false
+    t.integer "type", default: 0, null: false
+    t.bigint "folder_id"
+    t.bigint "category_id"
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.integer "position", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_bookmarks_on_category_id"
+    t.index ["folder_id"], name: "index_bookmarks_on_folder_id"
+    t.index ["group_id"], name: "index_bookmarks_on_group_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.bigint "user_id"
@@ -87,6 +105,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_110648) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bookmarks", "categories"
+  add_foreign_key "bookmarks", "folders"
+  add_foreign_key "bookmarks", "groups"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "categories", "groups"
   add_foreign_key "categories", "users"
   add_foreign_key "folders", "categories"

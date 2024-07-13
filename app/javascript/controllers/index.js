@@ -18,3 +18,6 @@ application.register("category", CategoryController)
 
 import FolderController from "./folder_controller"
 application.register("folder", FolderController)
+
+import BookmarkController from "./bookmark_controller"
+application.register("bookmark", BookmarkController)
