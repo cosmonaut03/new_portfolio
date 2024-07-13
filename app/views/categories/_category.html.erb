@@ -1,6 +1,6 @@
 <div id=category_<%= category.id %> class="category mb-3 pb-3">
     <div class="category-header">
-        <div class="category-name-box text-center">
+        <div id="category_name_<%= category.id %>" class="category-name-box text-center">
             <span class="category-name"><%= category.name %></span>
         </div>
         <% unless category.is_uncategorized %>
